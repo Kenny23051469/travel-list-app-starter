@@ -1,27 +1,69 @@
-// Initial packing items
-const initialItems = [
-  { id: 1, description: "Shirt", quantity: 5, packed: false },
-  { id: 2, description: "Pants", quantity: 2, packed: false },
-];
+import React, { useState } from "react";
 
 function Logo() {
   return <h1>My Travel List</h1>;
 }
 
-function Form() {
+function Form( { handleAddItems } ) {
+  const [description, setDescription] = useState("");
+  const [quantity, setQuantity] = useState(1);
+  
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    if (!description) return;
+
+    const newItem = {
+      id: Date.now(),
+      description,
+      quantity,
+      packed: false,
+    };
+
+    handleAddItems(newItem);
+
+    setDescription("");
+    setQuantity(1);
+  }
+
   return (
-    <form className="add-form">
+    <form className="add-form" onSubmit={handleSubmit}>
       <h3>What do you need to pack?</h3>
+
+      <select id="quantity" name="quantity" value={quantity} onChange={e => setQuantity(parseInt(e.target.value))}>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+      </select>
+
+      <input
+        type="text"
+        placeholder="Item..."
+        value={description}
+        onChange={(e) => setDescription(e.target.value)}
+      />
+
+      <button>Add</button>
     </form>
   );
 }
 
-function PackingList() {
+function Item({ item }) {
+  return (
+    <li style={{ textDecoration: item.packed ? "line-through" : "none" }}>
+      <h3>
+        {item.description} ({item.quantity})
+      </h3>
+    </li>
+  );
+}
+
+function PackingList({ items }) {
   return (
     <div className="list">
       <ul>
-        {initialItems.map((item) => (
-          <li>{item.description}</li>
+        {items.map((item) => (
+          <Item key={item.id} item={item} />
         ))}
       </ul>
     </div>
@@ -37,11 +79,17 @@ function Stats() {
 }
 
 function App() {
+  const [items, setItems] = useState([]);
+
+  function handleAddItems(item) {
+    setItems((prevItems) => [...prevItems, item]);
+  }
+
   return (
     <div className="app">
       <Logo />
-      <Form />
-      <PackingList />
+      <Form handleAddItems={handleAddItems}/>
+      <PackingList items = {items}/>
       <Stats />
     </div>
   );
