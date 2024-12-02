@@ -15,17 +15,10 @@ export default function Stats({ items }) {
           }
         </em>
       </div>
-      <div style={{ position: "relative", marginTop: "10px" }}>
-        <progress value={percentage} max="100" style={{ width: "100%", height: "75px" }} />
+      <div className="progress-container">
+        <progress value={percentage} max="100" className="progress-bar" />
         <span 
-          style={{
-            position: "absolute", 
-            top: "50%", 
-            left: "50%", 
-            transform: "translate(-50%, -50%)", 
-            fontWeight: "bold",
-            color: percentage === 100 ? "white" : "black"
-          }}
+          className={`progress-text ${percentage === 100 ? "completed" : "incomplete"}`}
         >
           {percentage}%
         </span>

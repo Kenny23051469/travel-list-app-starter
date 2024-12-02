@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export default function Form({ handleAddItems }) {
+export default function Form({ handleAddItems, handleClearItems }) {
     const [description, setDescription] = useState("");
     const [quantity, setQuantity] = useState(1);
   
@@ -41,6 +41,7 @@ export default function Form({ handleAddItems }) {
         />
   
         <button>Add</button>
+        <button type="button" onClick={handleClearItems}>Clear All</button>
       </form>
     );
   }

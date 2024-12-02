@@ -3,7 +3,6 @@ import PackingList from "./packingList.js";
 import Stats from "./Stats.js";
 import Form from "./Form.js";
 
-
 function Logo() {
   return <h1>Kenny's Travel List</h1>;
 }
@@ -25,12 +24,16 @@ function App() {
     );
   }
 
+  function handleClearItems() {
+    setItems([]);
+  }
+
   return (
     <div className="app">
       <Logo />
-      <Form handleAddItems={handleAddItems} />
+      <Form handleAddItems={handleAddItems} handleClearItems={handleClearItems} />
       <PackingList items={items} handleDeleteItem={handleDeleteItem} handleUpdateItem={handleUpdateItem} />
-      <Stats items = {items}/>
+      <Stats items={items} />
     </div>
   );
 }
