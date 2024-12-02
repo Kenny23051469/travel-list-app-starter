@@ -9,17 +9,15 @@ export default function Stats({ items }) {
     <footer className="stats">
       <div>
         <em>
-          {percentage === 100 ? 
-            "You packed everything!" : 
+          {percentage === 100 ?
+            "You packed everything!" :
             `You have ${totalItems} items in the list. You already packed ${packedItems} (${percentage}%).`
           }
         </em>
       </div>
       <div className="progress-container">
         <progress value={percentage} max="100" className="progress-bar" />
-        <span 
-          className={`progress-text ${percentage === 100 ? "completed" : "incomplete"}`}
-        >
+        <span className={`progress-text`} >
           {percentage}%
         </span>
       </div>

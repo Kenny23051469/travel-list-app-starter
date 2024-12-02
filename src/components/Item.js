@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 export default function Item({ item, handleDeleteItem, handleUpdateItem }) {
     return (
@@ -11,7 +11,7 @@ export default function Item({ item, handleDeleteItem, handleUpdateItem }) {
                         onChange={() => handleUpdateItem(item)}
                     />
                     <span style={{ textDecoration: item.packed ? "line-through" : "none" }}>
-                    {item.quantity}x {item.description} 
+                        {item.quantity}x {item.description}
                     </span>
                     <button onClick={() => handleDeleteItem(item)}>❌</button>
                 </h3>
