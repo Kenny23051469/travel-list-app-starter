@@ -61,8 +61,9 @@ input {
 
 .add-form button {
   text-transform: uppercase;
-  background-color: #27ae60;
-  color: #ecf0f1;
+  background-color: #53b5f1;
+  color: #ffffff;
+  padding: 1.4rem;
 }
 
 .list {
@@ -112,7 +113,7 @@ button {
 }
 
 button:hover {
-  color: #e74c3c;
+  color: #40e22a;
   transform: translateY(-2px);
 }
 
@@ -161,8 +162,8 @@ progress {
 }
 
 progress::-webkit-progress-bar {
-  background-color: #ecf0f1; /* Background color */
-  border-radius: 50px; /* Rounded corners */
+  background-color: #ecf0f1;
+  border-radius: 50px;
 }
 
 progress::-webkit-progress-value {
