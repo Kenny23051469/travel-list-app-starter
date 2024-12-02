@@ -3,7 +3,7 @@ import React, { useState } from "react";
 export default function Item({ item, handleDeleteItem, handleUpdateItem }) {
     return (
         <ul>
-            <li>
+            <li className={item.packed ? "packed-item" : "unpacked-item"}>
                 <h3>
                     <input
                         type="checkbox"

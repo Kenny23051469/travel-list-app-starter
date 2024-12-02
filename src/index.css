@@ -14,7 +14,7 @@ html {
 body {
   font-size: 2.4rem;
   font-family: "Roboto", sans-serif;
-  color: #2c3e50;
+  color: #ecf0f1;
 }
 
 .app {
@@ -62,6 +62,7 @@ input {
 .add-form button {
   text-transform: uppercase;
   background-color: #27ae60;
+  color: #ecf0f1;
 }
 
 .list {
@@ -86,13 +87,11 @@ input {
   gap: 1rem;
   padding: 1.6rem;
   border-radius: 8px;
-  background-color: #ecf0f1;
   color: #2c3e50;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .list li:hover {
-  background-color: #dfe6e9;
   box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
 }
 
@@ -132,8 +131,19 @@ span {
   padding-left: 1rem;
 }
 
+.packed-item {
+  border: 5px solid green;
+  background-color: #95e78b;
+}
+
+.unpacked-item {
+  border: 5px solid #ff0000;
+  background-color: #e78b8b;
+}
+
 .stats {
-  background-color:#27ae60;
+  background-color:#2980b9;
+  color: #ecf0f1;
   text-align:center; 
   font-weight:bold; 
   padding:.8rem; 
